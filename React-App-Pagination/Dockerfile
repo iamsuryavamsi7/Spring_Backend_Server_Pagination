@@ -22,4 +22,4 @@ COPY --from=builder /app/dist ./dist
 
 EXPOSE 443
 
-CMD ["serve", "-s", "dist", "-l", "443", "--ssl-cert", "/home/ubuntu/SSL_Cert/fullchain.pem", "--ssl-key", "/home/ubuntu/SSL_Cert/privkey.pem"]
+CMD ["serve", "-s", "dist", "-l", "443", "--ssl-cert", "/etc/ssl/fullchain.pem", "--ssl-key", "/etc/ssl/privkey.pem"]
