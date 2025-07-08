@@ -1,0 +1,46 @@
+# Configuration for Spring Boot Application
+
+spring:
+  application:
+    name: demo
+
+# Configuration for Spring JDBC
+
+  datasource:
+    url: jdbc:postgresql://database-1.c988w4kmyous.ap-south-1.rds.amazonaws.com:5432/students_boat_db
+    username: postgres
+    password: Students123
+    driver-class-name: org.postgresql.Driver
+
+# Configuration for hikari pool to maintain connection pool
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 60000
+      max-lifetime: 900000
+      connection-timeout: 30000
+      leak-detection-threshold: 2000
+
+# Configuration for Spring Hibernate
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# Configuration for Tomcat Server
+
+server:
+  port: 8081
+
+# Configuration for SSL Certificates
+
+  ssl:
+    key-store: classpath:keystore.p12
+    key-store-password: 1234
+    key-store-type: PKCS12
+    key-alias: tomcat
